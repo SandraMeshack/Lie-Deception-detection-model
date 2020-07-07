@@ -10,8 +10,8 @@ model = load_model('/home/chime/PycharmProjects/Testthesis/Emotions.h5')
 ## defining the labels of emotions available
 classes = ['anger', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surprised']
 # initilaising camera(laptop camera= 0, external=1)
-cap = cv2.VideoCapture(0)
-
+#cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('/home/chime/PycharmProjects/Testthesis/frankietruthh.mp4')
 while True:
     ## return the frame being seen by the camera
     ret, face = cap.read()
@@ -23,7 +23,7 @@ while True:
 
     for (x,y,w,h) in face_rects:
         ##white solid rectangle for facemapping and thickness of 10
-        cv2.rectangle(face, (x, y), (x+w, y+h), (255, 255, 255), 10)
+        cv2.rectangle(face, (x, y), (x+w, y+h), (255, 255, 255), 2)
         gray_roi = bgr2gray[y:y+h, x:x+w]
         gray_roi = cv2.resize(gray_roi, (48, 48), interpolation=cv2.INTER_AREA)
 
